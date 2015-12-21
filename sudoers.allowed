@@ -1,0 +1,11 @@
+Defaults env_reset
+Defaults mail_badpass
+Defaults secure_path = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+
+Defaults:sensu !requiretty
+Defaults:sensu secure_path = "/opt/sensu/embedded/bin:/usr/local/sbin:/usr/local/bin:/sbin:/usr/sbin:/bin:/usr/bin:/etc/sensu/plugins:/etc/sensu/handlers"
+Defaults:sensu env_keep += "GEM_PATH"
+
+root ALL = (ALL:ALL) ALL
+%sudo ALL = NOPASSWD: ALL
+sensu ALL = NOPASSWD: /etc/sensu/plugins/check-security.rb
